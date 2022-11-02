@@ -14,7 +14,7 @@ function Home({ isAuth }) {
 
   useEffect(() => {
     getPosts();
-  });
+  }, []);
 
   const deletePost = (id) => {
     const del = async()=> {
