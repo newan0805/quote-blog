@@ -30,9 +30,7 @@ function Home({ isAuth }) {
   };
 
   const check_user = (post)=> {
-    if (auth.currentUser.email !=="") {
-      if(auth.currentUser.email === email || post.author.id === auth.currentUser.id) {return true} else {return false}
-    }
+    return ((post.author.id === auth.currentUser.uid) || (auth.currentUser.email === email) ? true : false);
   }
 
   return (
