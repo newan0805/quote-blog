@@ -19,14 +19,14 @@ function Home({ isAuth }) {
   const deletePost = (id) => {
     const del = async()=> {
       const postDoc = doc(db, "posts", id);
-      await deleteDoc(postDoc);
-      getPosts();
+      await deleteDoc(postDoc)
+        getPosts();
     }
     let conf = window.confirm("Willing to  delete the post?")
-    if (id === auth.currentUser.uid && conf === true) {
+    if (conf === true && auth.currentUser.uid !== null) {
       del();
     }
-    getPosts();
+     getPosts();
   };
 
   const check_user = (post)=> {
